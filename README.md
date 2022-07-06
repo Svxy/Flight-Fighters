@@ -22,4 +22,8 @@
 
 <br>
 
+<h1 align=center><b><a href='https://tnyavnto.com/Flight-Fighters/fighters-assets/Flight%20Fighters%20v1.5.0.0.zip'>Download Now!</a></b></h1>
+
+<br>
+
 <p align=right>Licensed under GNU 3.0 Public License <sup>(NO COPYING)</sup></p>
