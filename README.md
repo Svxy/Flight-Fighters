@@ -2,6 +2,14 @@
 
 <br>
 
+<p align=center>Flight Fighters is a progressive jet fighting 2d top-down game written in python.</p>
+
+<br>
+
+<hr>
+
+<br>
+
 <p align=center><sup>Now released in Open Source under my concept company 'S&A Organics Co.' licensed under 'S&A Developments'</sup></p>
 
 <p align=center><sup>(Note the <a href='./LICENSE'>GNU License</a>)</sup></p>
