@@ -1,8 +1,6 @@
 # This file is not auto-generated
 
 notes/
-images/
-audio/
 .vscode/
 __pycache__/
 output/
