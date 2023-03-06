@@ -6,7 +6,9 @@
 
 <br>
 
-<hr>
+#### TODO:
+
+- Trim Boss Fight audio file
 
 <br>
 
