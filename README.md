@@ -10,19 +10,19 @@
 
 <br>
 
-<p align=center><sup>Now released in Open Source under my concept company 'S&A Organics Co.' licensed under 'S&A Developments'</sup></p>
+<p align=center><sup>Now released in Open Source licensed under 'TnyavnTo'</sup></p>
 
 <p align=center><sup>(Note the <a href='./LICENSE'>GNU License</a>)</sup></p>
 
 <br>
 
-<p align=center>New version v1.5.0.0 released (see unfinished <a href='./patch_notes_v1.5.0.0.md'>release notes</a>)</p>
+<p align=center>New version v1.5.0.5 released (see <a href='./patch_notes_v1.5.0.5.md'>patch notes</a>)</p>
 
 <hr>
 
 <br>
 
-<h1 align=center><b><a href='https://tnyavnto.com/Flight-Fighters/fighters-assets/Flight%20Fighters%20v1.5.0.0.zip'>Download Now!</a></b></h1>
+<h1 align=center><b><a href='https://tnyavnto.com/Flight-Fighters/fighters-assets/Flight%20Fighters%20v1.5.0.5.zip'>Download Now!</a></b></h1>
 
 <br>
 

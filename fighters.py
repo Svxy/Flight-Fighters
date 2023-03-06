@@ -1,6 +1,7 @@
             # IMPORTS
 import pygame
 import random
+import json
 import sys
             ## IMPORTS
 
@@ -57,11 +58,11 @@ start_sound = pygame.mixer.Sound('./audio/Black Ops 2 - Adrenaline.mp3')
 start_sound.set_volume(.3)
 gameMusic = pygame.mixer.Sound('./audio/Black Ops 2 - Adrenaline.mp3')
 gameMusic.set_volume(.3)
-gameeasy = pygame.mixer.Sound('./audio/Fallguys - Everybody Falls.mp3')
+gameeasy = pygame.mixer.Sound('./audio/Counter Strike Main Menu.mp3')
 gameeasy.set_volume(.7)
-gamehard = pygame.mixer.Sound('./audio/Counter Strike Main Menu.mp3')
+gamehard = pygame.mixer.Sound('./audio/Boss Fight.mp3')
 gamehard.set_volume(.7)
-gameover_music = pygame.mixer.Sound('./audio/Fallguys - Everybody Falls.mp3')
+gameover_music = pygame.mixer.Sound('./audio/Counter Strike Main Menu.mp3')
 gameover_music.set_volume(.3)
 haha = pygame.mixer.Sound('./audio/haha.wav')
 haha.set_volume(.5)
@@ -112,6 +113,21 @@ all_bullets=pygame.sprite.Group()
 
 all_ebullets = pygame.sprite.Group()
             ## SETS PARTICLES TO SPRITE GROUPS
+
+            ## HIGH SCORE
+HIGH_SCORE_FILE = "high_score.json"
+
+def load_high_score():
+    try:
+        with open(HIGH_SCORE_FILE) as f:
+            return json.load(f)
+    except:
+        return 0
+    
+def save_high_score(score):
+    with open(HIGH_SCORE_FILE, "w") as f:
+        json.dump(score, f)
+            ## HIGH SCORE
             
             # UPGRADE ANIMATION
 upgrade_anim = []
@@ -408,7 +424,7 @@ def pause():
 def menu():
 
     player.kill()
-
+    high_score = load_high_score
     intro = True
     menu_snow = pygame.sprite.Group()
     menuimg = pygame.image.load('./images/menu.jpg').convert()
@@ -431,6 +447,7 @@ def menu():
         menu_snow.update()
                 
                 # BUTTONS FOR MAIN MENU
+        button('High Score',21,420,300,40,3,(180, 175, 180, 70),(0, 0, 0),display_high_score_action)
         button('Play',21,490,300,40,3,(180, 175, 180, 70),(0, 0, 0),game)
         button('Credits',21,550,300,40,3,(180, 175, 180, 70),(0, 0, 0),credit)
         button('Mute',21,600,300,40,3,(180, 175, 180, 70),(0, 0, 0),mute)
@@ -441,8 +458,27 @@ def menu():
         clock.tick(60)
     if not muted: gameMusic.fadeout(500)
 
+    display_high_score(screen, high_score)
+    pygame.display.update()
+    clock.tick(60)
+
+def display_high_score_action():
+    # load high score
+    high_score = load_high_score()
+
+    # display high score
+    display_high_score(screen, high_score)
+    # display high score function
+def display_high_score(screen, high_score):
+    s_font = pygame.font.SysFont('arial', 69)
+    s = s_font.render("High score: " + str(high_score), True, (190, 0, 0))
+    s_rect = s.get_rect()
+    s_rect.center = (screen_w/7, 360)
+    screen.blit(s, s_rect)
+
                 # CREDITS MENU
 def credit():
+
     credits1=True
 
     menu2 = pygame.image.load('./images/menu2.jpg').convert_alpha()
@@ -450,6 +486,14 @@ def credit():
 
     creditimg = pygame.image.load('./images/credits.png')
     creditimg = Image(creditimg,(screen_w/2,400))
+
+    bg_surface = pygame.Surface(creditimg.image.get_size(), pygame.SRCALPHA)
+    bg_color = (0, 0, 0, 25)
+
+    pygame.draw.rect(bg_surface, bg_color, bg_surface.get_rect(), border_radius=45)
+    creditimg.image.blit(bg_surface, (0, 0))
+
+    screen.blit(creditimg.image, creditimg.rect)
 
     credit_images = pygame.sprite.Group()
     credit_images.add(creditimg)
@@ -535,6 +579,12 @@ def gameover():
         s_rect = s.get_rect()
         s_rect.center = (screen_w/2,150)
         screen.blit(s,s_rect)
+        high_score = load_high_score()
+        s_font = pygame.font.SysFont('arial', 40)
+        s = s_font.render("High score: " + str(high_score), True, (190, 0, 0))
+        s_rect = s.get_rect()
+        s_rect.center = (screen_w/2, 200)
+        screen.blit(s, s_rect)
 
         pygame.display.update()
         clock.tick(60)
@@ -582,6 +632,7 @@ def innergame():
     machinegun = False
     smg_not = False
     g_start = True
+    high_score = load_high_score()
 
     smg = pygame.image.load('./images/machinegun.png')
     smg = Image(smg,(screen_w/2,400))
@@ -827,6 +878,12 @@ def innergame():
         # SCORE INGAME
         s_surf = arial_25.render("Score: "+str(score),True,white)
         screen.blit(s_surf,(10,60))
+        s_surf = arial_25.render("High Score: "+str(high_score),True,white)
+        screen.blit(s_surf,(10,95))
+
+        if score > high_score:
+            high_score = score
+            save_high_score(high_score)
 
         if up:
             if smg_not:

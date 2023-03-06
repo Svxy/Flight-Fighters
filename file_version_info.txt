@@ -1,21 +1,21 @@
 VSVersionInfo(
   ffi=FixedFileInfo(
-filevers=(1, 5, 0, 0),
-prodvers=(1, 5, 0, 0),
+filevers=(1, 5, 0, 5),
+prodvers=(1, 5, 0, 5),
 ),
   kids=[
 StringFileInfo(
   [
   StringTable(
     u'0100101500',
-    [StringStruct(u'CompanyName', u'S&A Developments'),
+    [StringStruct(u'CompanyName', u'TnyavnTo'),
     StringStruct(u'FileDescription', u'Flight Fighters is a progressive jet fighting 2d top-down game written in python.'),
-    StringStruct(u'FileVersion', u'1.5.0.0'),
+    StringStruct(u'FileVersion', u'1.5.0.5'),
     StringStruct(u'InternalName', u'Flight Fighters'),
-    StringStruct(u'LegalCopyright', u'Copyright (c) S&A Organics Co.'),
+    StringStruct(u'LegalCopyright', u'Copyright (c) TnyavnTo'),
     StringStruct(u'OriginalFilename', u'Flight Fighters.exe'),
     StringStruct(u'ProductName', u'Flight Fighters'),
-    StringStruct(u'ProductVersion', u'1.5.0.0')])
+    StringStruct(u'ProductVersion', u'1.5.0.5')])
   ]), 
   ]
 )
